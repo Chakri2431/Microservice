@@ -24,9 +24,9 @@ pipeline {
         stage('Build & Tag Docker Image') {
             steps {
                 script {
-                    dir('/src'){
-                        
-                    }
+                     dir('src/cartservice/src') {
+                    
+                    }                     
                     withDockerRegistry(credentialsId: env.DOCKER_CREDENTIALS, toolName: 'docker') {
                         
                         sh "docker build -t chakri2431/microservice:my-cartservice ."
@@ -37,10 +37,10 @@ pipeline {
         
         stage('Push Docker Image') {
             steps {
-                script {
-                     dir('/src'){
-                        
-                    }
+                 script {
+                     dir('src/cartservice/src') {
+                    
+                    }   
                     withDockerRegistry(credentialsId: env.DOCKER_CREDENTIALS, toolName: 'docker') {
                         sh "docker push chakri2431/microservice:my-cartservice"
                     }
