@@ -24,7 +24,7 @@ pipeline {
         stage('Build & Tag Docker Image') {
             steps {
                 script {
-                    dir('*/cartservice/src'){
+                    dir('/src'){
                         
                     }
                     withDockerRegistry(credentialsId: env.DOCKER_CREDENTIALS, toolName: 'docker') {
@@ -38,7 +38,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                     dir('*/cartservice/src'){
+                     dir('/src'){
                         
                     }
                     withDockerRegistry(credentialsId: env.DOCKER_CREDENTIALS, toolName: 'docker') {
